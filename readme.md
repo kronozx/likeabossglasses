@@ -1,0 +1,1 @@
+This is a face detection process that uses face-api.js library created by Vincent Muehler
