@@ -41,6 +41,7 @@ video.addEventListener('playing', () => {
         const rightEye = await detections.landmarks.getRightEye();
         const leftEyeBrow = await detections.landmarks.getLeftEyeBrow();
         const rightEyeBrow = await detections.landmarks.getRightEyeBrow();
+        const jawline = await detections.landmarks.getJawOutline();
                 
         if(bossGlasses) {
             console.log('like a boss');
@@ -57,9 +58,9 @@ video.addEventListener('playing', () => {
         bossGlasses.src = "images/bossglasses.png"; 
         bossGlasses.style.cssText = `
             position: absolute;
-            width: calc(${rightEyeBrow[4].x}px - ${leftEyeBrow[0].x}px);
+            width: calc(${jawline[16].x}px - ${jawline[0].x}px);
             transform: rotate(${angleDegrees}deg);
-            left: ${leftEyeBrow[0].x}px;
+            left: ${jawline[0].x}px;
             top: ${leftEyeBrow[0].y}px;                   
         `;
         document.body.appendChild(bossGlasses);
